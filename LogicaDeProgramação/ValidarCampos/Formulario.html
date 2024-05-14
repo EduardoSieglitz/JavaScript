@@ -107,17 +107,26 @@
                 <label for="">Cliente</label><br><input type="text" id="Cliente">
             </div>
             <div class="Produto">
-                <label for="">Produto</label><br><input type="text" id="Cliente">
+                <label for="">Produto</label><br><input type="text" id="Produto">
             </div>
             <div class="Quantidade">
                 <label for="">Quantidade</label><br><button type="button" class="Mais"><strong>+</strong></button>
-                <input type="text" id="Cliente" disabled><button type="button" class="Menor"><strong>-</strong></button>
+                <input type="text" id="Quantidade" disabled><button type="button" class="Menor"><strong>-</strong></button>
             </div>
             <div class="Valor">
-                <label for="">Valor</label><br><input type="text" id="Cliente">
+                <label for="">Valor</label><br><input type="text" id="Valor">
             </div>
-            <button class="Executar"><Strong>Visualizar Recibo</Strong></button>
+            <button class="Executar" type="button" onclick="Validar()">Visualizar Recibo</button>
         </fieldset>
     </div>
+    <script>
+        function Validar(){
+            const Cliente = document.getElementById("Cliente").value, Produto = document.getElementById("Produto").value,
+            Quantidade = document.getElementById("Quantidade").value, Valor = document.getElementById("Valor").value;
+            if(Valor.trim() === "" || Cliente.trim() === "" || Produto.trim() === "" || Quantidade.trim() === "") {
+                alert("Algum campo está vazio");
+            }
+        }
+    </script>
 </body>
 </html>
