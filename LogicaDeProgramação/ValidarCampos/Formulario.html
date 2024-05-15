@@ -111,7 +111,7 @@
             </div>
             <div class="Quantidade">
                 <label for="">Quantidade</label><br><button type="button" class="Mais"><strong>+</strong></button>
-                <input type="text" id="Quantidade" disabled><button type="button" class="Menor"><strong>-</strong></button>
+                <input type="text" id="Quantidade"><button type="button" class="Menor"><strong>-</strong></button>
             </div>
             <div class="Valor">
                 <label for="">Valor</label><br><input type="text" id="Valor">
@@ -125,6 +125,9 @@
             Quantidade = document.getElementById("Quantidade").value, Valor = document.getElementById("Valor").value;
             if(Valor.trim() === "" || Cliente.trim() === "" || Produto.trim() === "" || Quantidade.trim() === "") {
                 alert("Algum campo está vazio");
+            }
+            if (isNaN(Quantidade)) {
+                alert("A quantidade não deve conter virgula.");
             }
         }
     </script>
