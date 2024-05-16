@@ -4,117 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    *{
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .Conteiner{
-        width: 96vw;
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .Conteiner fieldset{
-        width: 50vw;
-        height: 65vh;
-        border: 1px solid #1C1E21;
-        border-radius: 5px;
-    }
-    .Conteiner legend{
-        padding: 10px;
-        color: #1C1E21;
-    }
-    .Conteiner label{
-        line-height: 2;
-        color: #1C1E21;
-    }
-    .Mais{
-        border: none;
-        background-color: #c2c4c7;
-        border-radius: 5px;
-        width: 30px;
-        height: 30px;
-    }
-    .Menor{
-        border: none;
-        background-color: #c2c4c7;
-        border-radius: 5px;
-        width: 30px;
-        height: 30px;
-        margin-left: 5px;
-    }
-    .Executar{
-        width: 150px;
-        height: 40px;
-        padding: 5px;
-        border: none;
-        background-color: #c2c4c7;
-        border-radius: 5px;
-        margin: 20px;
-    }
-    .Cliente input{
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid;
-        border-color: #1C1E21;
-        height: 20px;
-        width: 350px;
-    }
-    .Cliente{
-       margin: 20px;
-    }
-    .Produto{
-        margin: 20px;
-    }
-    .Produto input{
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid;
-        border-color: #1C1E21;
-        height: 20px;
-        width: 350px;
-    }
-    .Quantidade{
-        margin: 20px;
-    }
-    .Quantidade input{
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid;
-        border-color: #1C1E21;
-        height: 20px;
-        width: 280px;
-    }
-    .Valor{
-        margin: 20px;
-    }
-    .Valor input{
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid;
-        border-color: #1C1E21;
-        height: 20px;
-        width: 350px;
-    }
-</style>
 <body>
     <div class="Conteiner">
         <fieldset>
             <legend>Tela de Venda</legend>
             <div class="Cliente">
-                <label for="">Cliente</label><br><input type="text" id="Cliente">
+                <label for="">Cliente</label><br><input type="text" id="Cliente" placeholder="Digite nome do cliente">
             </div>
             <div class="Produto">
-                <label for="">Produto</label><br><input type="text" id="Produto">
+                <label for="">Produto</label><br><input type="text" id="Produto" placeholder="Digite nome do produto">
             </div>
             <div class="Quantidade">
-                <label for="">Quantidade</label><br><button type="button" class="Mais"><strong>+</strong></button>
-                <input type="text" id="Quantidade"><button type="button" class="Menor"><strong>-</strong></button>
+                <label for="">Quantidade</label><br>
+                <button type="button" class="Mais" id="Mais" onclick="mais()"><strong>+</strong></button>
+
+                <input type="text" id="Quantidade" value="0">
+
+                <button type="button" class="Menor" id="Menos" onclick="menos()"><strong>-</strong></button>
             </div>
             <div class="Valor">
-                <label for="">Valor</label><br><input type="text" id="Valor">
+                <label for="">Valor</label><br><input type="number" id="Valor" placeholder="Digite preço do produto">
             </div>
             <button class="Executar" type="button" onclick="Validar()">Visualizar Recibo</button>
         </fieldset>
@@ -122,13 +33,42 @@
     <script>
         function Validar(){
             const Cliente = document.getElementById("Cliente").value, Produto = document.getElementById("Produto").value,
-            Quantidade = document.getElementById("Quantidade").value, Valor = document.getElementById("Valor").value;
+            Quantidade = document.getElementById("Quantidade").value, Valor = document.getElementById("Valor").value, regex = /^[a-zA-Z\s]*$/;
             if(Valor.trim() === "" || Cliente.trim() === "" || Produto.trim() === "" || Quantidade.trim() === "") {
                 alert("Algum campo está vazio");
-            }
-            if (isNaN(Quantidade)) {
+            }else if (!regex.test(Cliente)) {
+                alert("O nome do cliente não deve conter caracteres especiais ou números.");
+            }else if (isNaN(Quantidade)) {
                 alert("A quantidade não deve conter virgula.");
+            }else if (Cliente.length > 50) {
+                alert("O nome do cliente deve conter uma quantidade de letras menores.");
+            }else if (Cliente.length < 2) {
+                alert("O nome do cliente deve conter uma quantidade de letras maior.");
+            }else if (Produto.length > 20) {
+                alert("O nome do produto deve conter uma quantidade de letras menores.");
+            }else if (Produto.length < 2) {
+                alert("O nome do produto deve conter uma quantidade de letras maior.");
+            }else if (!regex.test(Produto)) {
+                alert("O nome do produto não deve conter caracteres especiais ou números.");
+            }else if (Quantidade > 1000) {
+                alert("A quantidade não pode ser maior que 1000.");
+            }else if (Quantidade == 0) {
+                alert("A quantidade não pode ser igual 0");
+            }else if (Valor.length > 10000) {
+                alert("Valor não pode custa mais de 10000");
+            }else if (Valor.length < 50) {
+                alert("Valor não custa menor de 50");
             }
+        }
+        function mais(){
+        Quantidade = parseInt(document.getElementById("Quantidade").value);
+        const mais = document.getElementById("Mais").value;
+        document.getElementById("Quantidade").value = Quantidade += 1;
+        }
+        function menos(){
+        Quantidade = parseInt(document.getElementById("Quantidade").value);
+        const menor = document.getElementById("Menos").value;
+        document.getElementById("Quantidade").value = Quantidade -= 1;
         }
     </script>
 </body>
