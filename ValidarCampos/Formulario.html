@@ -1,75 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendas</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="Conteiner">
         <fieldset>
             <legend>Tela de Venda</legend>
-            <div class="Cliente">
-                <label for="">Cliente</label><br><input type="text" id="Cliente" placeholder="Digite nome do cliente">
-            </div>
-            <div class="Produto">
-                <label for="">Produto</label><br><input type="text" id="Produto" placeholder="Digite nome do produto">
-            </div>
-            <div class="Quantidade">
-                <label for="">Quantidade</label><br>
-                <button type="button" class="Mais" id="Mais" onclick="mais()"><strong>+</strong></button>
+            <form method="post" id="form">
+                <div class="Cliente">
+                    <input type="text" id="Cliente" name="cliente" placeholder="Digite nome do cliente">
+                    <p class="error" id="textCliente"></p>
+                </div>
+                <div class="Produto">
+                    <input type="text" id="Produto" name="produto" placeholder="Digite nome do produto">
+                    <p class="error" id="textProduto"></p>
+                </div>
+                <div class="Quantidade">
+                    <div>
+                        <button type="button" class="Mais" id="Mais"><strong>+</strong></button>
 
-                <input type="text" id="Quantidade" value="0">
+                        <input type="text" id="Quantidade" name="quantidade" value="0">
 
-                <button type="button" class="Menor" id="Menos" onclick="menos()"><strong>-</strong></button>
-            </div>
-            <div class="Valor">
-                <label for="">Valor</label><br><input type="number" id="Valor" placeholder="Digite preço do produto">
-            </div>
-            <button class="Executar" type="button" onclick="Validar()">Visualizar Recibo</button>
+                        <button type="button" class="Menor" id="Menos"><strong>-</strong></button>
+                        <p class="error" id="textQuantidade"></p>
+                    </div>
+                </div>
+                <div class="Valor">
+                    <input type="text" id="Valor" name="valor" placeholder="Digite preço do produto">
+                    <p class="error" id="textValor"></p>
+                </div>
+                <div class="button">
+                    <button class="Executar">Visualizar Recibo</button>
+                </div>
+            </form>
         </fieldset>
     </div>
-    <script>
-        function Validar(){
-            const Cliente = document.getElementById("Cliente").value, Produto = document.getElementById("Produto").value,
-            Quantidade = document.getElementById("Quantidade").value, Valor = document.getElementById("Valor").value, regex = /^[a-zA-Z\s]*$/;
-            if(Valor.trim() === "" || Cliente.trim() === "" || Produto.trim() === "" || Quantidade.trim() === "") {
-                alert("Algum campo está vazio");
-            }else if (!regex.test(Cliente)) {
-                alert("O nome do cliente não deve conter caracteres especiais ou números.");
-            }else if (isNaN(Quantidade)) {
-                alert("A quantidade não deve conter virgula.");
-            }else if (Cliente.length > 50) {
-                alert("O nome do cliente deve conter uma quantidade de letras menores.");
-            }else if (Cliente.length < 2) {
-                alert("O nome do cliente deve conter uma quantidade de letras maior.");
-            }else if (Produto.length > 20) {
-                alert("O nome do produto deve conter uma quantidade de letras menores.");
-            }else if (Produto.length < 2) {
-                alert("O nome do produto deve conter uma quantidade de letras maior.");
-            }else if (!regex.test(Produto)) {
-                alert("O nome do produto não deve conter caracteres especiais ou números.");
-            }else if (Quantidade > 1000) {
-                alert("A quantidade não pode ser maior que 1000.");
-            }else if (Quantidade == 0) {
-                alert("A quantidade não pode ser igual 0");
-            }else if (Valor.length > 10000) {
-                alert("Valor não pode custa mais de 10000");
-            }else if (Valor.length < 50) {
-                alert("Valor não custa menor de 50");
-            }
-        }
-        function mais(){
-        Quantidade = parseInt(document.getElementById("Quantidade").value);
-        const mais = document.getElementById("Mais").value;
-        document.getElementById("Quantidade").value = Quantidade += 1;
-        }
-        function menos(){
-        Quantidade = parseInt(document.getElementById("Quantidade").value);
-        const menor = document.getElementById("Menos").value;
-        document.getElementById("Quantidade").value = Quantidade -= 1;
-        }
-    </script>
+    <script src="./script.js"></script>
 </body>
+
 </html>

@@ -1,35 +1,41 @@
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
 }
-.Conteiner{
+
+.Conteiner {
     width: 96vw;
-    height: 80vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.Conteiner fieldset{
+
+.Conteiner fieldset {
     width: 50vw;
-    height: 65vh;
+    height: 68vh;
     border: 1px solid #1C1E21;
     border-radius: 5px;
 }
-.Conteiner legend{
+
+.Conteiner legend {
     padding: 10px;
     color: #1C1E21;
 }
-.Conteiner label{
+
+.Conteiner label {
     line-height: 2;
     color: #1C1E21;
 }
-.Mais{
+
+.Mais {
     border: none;
     background-color: #c2c4c7;
     border-radius: 5px;
     width: 30px;
     height: 30px;
 }
-.Menor{
+
+.Menor {
     border: none;
     background-color: #c2c4c7;
     border-radius: 5px;
@@ -37,7 +43,8 @@
     height: 30px;
     margin-left: 5px;
 }
-.Executar{
+
+.Executar {
     width: 150px;
     height: 40px;
     padding: 5px;
@@ -46,7 +53,8 @@
     border-radius: 5px;
     margin: 20px;
 }
-.Cliente input{
+
+.Cliente input {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid;
@@ -54,13 +62,34 @@
     height: 20px;
     width: 350px;
 }
-.Cliente{
-   margin: 20px;
+
+.Cliente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+    width: 100%;
 }
-.Produto{
-    margin: 20px;
+.button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+    width: 100%;
 }
-.Produto input{
+
+.Produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+    width: 100%;
+}
+
+.Produto input {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid;
@@ -68,10 +97,17 @@
     height: 20px;
     width: 350px;
 }
-.Quantidade{
-    margin: 20px;
+
+.Quantidade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+    width: 100%;
 }
-.Quantidade input{
+
+.Quantidade input {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid;
@@ -79,14 +115,35 @@
     height: 20px;
     width: 280px;
 }
-.Valor{
-    margin: 20px;
+
+.Valor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 13vh;
+    width: 100%;
 }
-.Valor input{
+
+.Valor input {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid;
     border-color: #1C1E21;
     height: 20px;
     width: 350px;
+}
+
+p {
+    padding: 0;
+    margin: 3px;
+    font-size: 5px;
+}
+
+/*Validação*/
+
+.error {
+    color: #ce1010;
+    font-size: 15px;
+
 }
