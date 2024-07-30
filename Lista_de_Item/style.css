@@ -1,0 +1,69 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    background: rgb(247, 244, 244);
+}
+
+.container{
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 75vh;
+}
+
+.rigth{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 75vh;
+}
+
+input{
+    border-radius: 4px;
+    height: 30px;
+    background: #cccccc;
+    border: 1px solid #000000;
+    width: 150px
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 40vh; 
+    border-radius: 4px;
+    border: 1px solid #000000;
+}
+
+.inputControl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25%; 
+}
+
+button{
+    border-radius: 4px;
+    height: 25px;
+    background: #cccccc;
+    border: 1px solid #000000;
+    width: 150px
+}
