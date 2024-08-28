@@ -1,3 +1,4 @@
+# JAVASCRIPT
 Lógica de Programação em JavaScript
 Este repositório, LogicaDeProgramacao, é dedicado ao estudo das sintaxes básicas do JavaScript, abordando conceitos fundamentais de lógica de programação. O foco é proporcionar uma base sólida para o desenvolvimento em JavaScript, explorando os seguintes tópicos principais:
 
